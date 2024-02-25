@@ -1,2 +1,39 @@
-<p>inquiries works!</p>
-<button (click)="apiCall()">test</button>
+<button mat-raised-button color="primary" (click)="getCount()">Get Count</button>
+<p>Response: {{count}}</p>
+
+<br><br><br>
+
+<mat-form-field>
+    <mat-label>ID#</mat-label>
+    <input matInput [(ngModel)]="id" name="id">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="getById()">Get By ID</button>
+<p>Response: <span *ngIf="returnedInquiry"><a (click)="setEdit(returnedInquiry)">{{returnedInquiry.id}}</a>: {{returnedInquiry.firstName}} {{returnedInquiry.lastName}}</span></p>
+
+<br><br><br>
+
+<button mat-raised-button color="primary" (click)="getAll()">Get All</button>
+<p>Response: </p>
+<div *ngFor="let item of all">
+    <p><a (click)="setEdit(item)">{{item.id}}</a>: {{item.firstName}} {{item.lastName}}</p>
+</div>
+
+<br><br><br>
+
+<h2>{{addOrEdit}}</h2>
+
+<mat-form-field>
+    <mat-label>First Name</mat-label>
+    <input matInput [(ngModel)]="firstName" name="firstName">
+</mat-form-field>
+
+<span style="padding: 10px">
+<mat-form-field>
+    <mat-label>Last Name</mat-label>
+    <input matInput [(ngModel)]="lastName" name="lastName">
+</mat-form-field>
+</span>
+
+<button mat-raised-button color="primary" (click)="addNew()" *ngIf="addOrEdit == 'add'">Add</button>
+<button mat-raised-button color="primary" (click)="update()" *ngIf="addOrEdit == 'edit'">Edit</button>
+<button mat-raised-button color="primary" (click)="resetForm()" *ngIf="addOrEdit == 'edit'">Cancel</button>

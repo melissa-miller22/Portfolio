@@ -1,0 +1,28 @@
+package com.portfolio.services;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.portfolio.repository.InquiryRepository;
+import com.portfolio.repository.entities.Inquiry;
+
+@Service
+public class InquiryService {
+	
+	@Autowired
+    private InquiryRepository inquiryRepository;
+
+	public Iterable<Inquiry> findAllInquiries() {		
+    	return inquiryRepository.findAll();
+    }
+	
+	public Optional<Inquiry> findById(int id) {
+		return inquiryRepository.findById((long) id);
+	}
+	
+    public long findNumberOfInquiries() {
+    	return inquiryRepository.count();
+    }
+}

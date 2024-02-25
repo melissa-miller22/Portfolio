@@ -1,0 +1,61 @@
+package com.portfolio.repository.entities;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="Inquiry")
+public class Inquiry extends BaseEntityAudit{
+	
+	Inquiry(){}
+	
+	public Inquiry(String firstName, String lastName){
+		FirstName = firstName;
+		LastName = lastName;
+	}
+	
+	private String FirstName;
+
+	private String LastName;
+	
+	/*private String EmailAddress;
+	
+	private String InquiryTitle;
+	
+	private String InquiryDescription;
+	
+	private String ShootLocation;
+	
+	private Date StartDate;
+	
+	private Date EndDate;
+	
+	private String Notes;
+	
+	private Date SubmittedAt;
+	
+	private Date UpdatedAt;*/
+		
+	public String getFirstName() {
+		return FirstName;
+	}
+	
+	public String getLastName() {
+		return LastName;
+	}
+	
+	public void setFirstName(String firstName) {
+		this.FirstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.LastName = lastName;
+	}
+	
+	@Override
+	public String toString() {
+        return "Product{" +
+                " name=" + FirstName + " " + LastName + super.toString();
+	}
+
+}

@@ -1,0 +1,13 @@
+package com.portfolio.repository.entities;
+
+import java.io.Serializable;
+
+public class BaseEntityId implements Serializable{
+	
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+}

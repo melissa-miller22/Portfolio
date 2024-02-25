@@ -1,0 +1,32 @@
+package com.portfolio.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.portfolio.repository.InquiryRepository;
+import com.portfolio.repository.entities.Inquiry;
+
+@Service
+public class InquiryService {
+	
+	@Autowired
+    private InquiryRepository inquiryRepository;
+
+	public List<Inquiry> findAllInquiries() {
+		Iterable<Inquiry> allInquiries = inquiryRepository.findAll();
+		
+		//List<String> returnedList = new ArrayList();
+		
+		
+		
+    	return (List<Inquiry>) inquiryRepository.findAll();
+    }
+	
+    public long findNumberOfInquiries() {
+    	return inquiryRepository.count();
+    }
+}

@@ -1,0 +1,21 @@
+package com.portfolio.repository.entities;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+public class BaseEntity {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long ID;
+	
+	public long getId() {
+		return ID;
+	}
+	
+	public void setId(long id) {
+		this.ID = id;
+	}
+
+}
