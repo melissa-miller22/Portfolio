@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-inquiries',
   templateUrl: './inquiries.component.html',
-  styleUrls: ['./inquiries.component.css']
+  styleUrls: ['./inquiries.component.scss']
 })
 export class InquiriesComponent implements OnInit {
   

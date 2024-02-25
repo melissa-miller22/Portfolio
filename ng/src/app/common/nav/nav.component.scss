@@ -1,0 +1,44 @@
+.fixed-header {
+    width:100%;
+    position: fixed;
+    top:0;
+    z-index: 1000;
+}
+
+.full-width-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #2F4031; 
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1920px; 
+    width: 100%;
+    margin: 0 auto;
+}
+
+.title-link{
+    font-family: "Libre Baskerville", serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-left:-20px;
+    height: 100%;
+    padding-left:20px;
+    padding-right: 100px;
+}
+
+.app-link{
+    height: 100%;
+    padding-left: 20px;
+    padding-right:50px;
+}
+
+a {
+    width: 100%;
+    height:100%;
+}
