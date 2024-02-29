@@ -12,9 +12,9 @@ export class InquiriesComponent {
   
   count: any = '';
   all: any = '';
-  newInquiry!: Inquiry;
-  activeInquiry!: Inquiry;
-  returnedInquiry!: Inquiry;
+  newInquiry!: any;
+  activeInquiry!: any;
+  returnedInquiry!: any;
 
   addOrEdit = 'add';
 
@@ -45,7 +45,10 @@ export class InquiriesComponent {
   }
 
   addNew(){
-    this.newInquiry = new Inquiry(this.firstName, this.lastName);
+    this.newInquiry = {
+      firstName: this.firstName,
+      lastName: this.lastName
+    }
     if(this.newInquiry){
       this.apiService.post('inquiries/add', this.newInquiry).subscribe((data: any) => {
         this.getAll();
@@ -69,7 +72,12 @@ export class InquiriesComponent {
   }
 
   update(){
-    this.newInquiry = new Inquiry(this.firstName, this.lastName, this.activeInquiry.id);
+    this.newInquiry = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      id: this.activeInquiry.id
+    }
+
     if(this.newInquiry){
       this.apiService.put('inquiries/update', this.newInquiry).subscribe((data: any) => {
         this.resetForm();

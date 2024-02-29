@@ -2,6 +2,7 @@ package com.portfolio.services;
 
 import java.util.Date;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,16 +29,27 @@ public class InquiryService {
     }
     
     public Inquiry newInquiry(Inquiry newInquiry) {
-    	newInquiry.setCreatedAt(new Date());
-    	newInquiry.setCreatedBy("admin");
+    	newInquiry.setConfirmationCode(createConfirmationCode());
     	
     	return inquiryRepository.save(newInquiry);
     }
     
     public Inquiry editInquiry(Inquiry updatedInquiry) {
-    	updatedInquiry.setUpdatedAt(new Date());
     	updatedInquiry.setUpdatedBy("admin");
     	
     	return inquiryRepository.save(updatedInquiry);
+    }
+    
+    private String createConfirmationCode() {
+        String allowableChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+        StringBuilder randomCode = new StringBuilder();
+        Random rnd = new Random();
+        while (randomCode.length() < 12) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * allowableChars.length());
+            randomCode.append(allowableChars.charAt(index));
+        }
+        String confirmationCode = randomCode.toString();
+        return confirmationCode;
+
     }
 }

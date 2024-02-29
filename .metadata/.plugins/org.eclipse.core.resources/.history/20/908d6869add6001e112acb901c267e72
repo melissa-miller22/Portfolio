@@ -1,0 +1,8 @@
+package com.portfolio.services.dto;
+
+public class InquiryDto {
+	
+	private String firstName;
+	private String lastName;
+
+}

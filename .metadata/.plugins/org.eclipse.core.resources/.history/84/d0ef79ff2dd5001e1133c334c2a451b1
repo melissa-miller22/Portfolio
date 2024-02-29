@@ -1,0 +1,18 @@
+package com.portfolio.services.dto;
+
+import org.modelmapper.ModelMapper;
+
+import com.portfolio.repository.entities.Inquiry;
+
+public class EntityMapper {
+
+    private static final ModelMapper modelMapper = new ModelMapper();
+
+    public static Inquiry mapDtoToEntity(InquiryDto dto) {
+        return modelMapper.map(dto, Inquiry.class);
+    }
+
+    public static InquiryDto mapEntityToDto(Inquiry inquiry) {
+        return modelMapper.map(inquiry, InquiryDto.class);
+    }
+}

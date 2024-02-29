@@ -2,10 +2,16 @@
   <div class="header-content">
     <mat-toolbar color="primary" class="full-width-toolbar">
       <button mat-button class="title-link" [routerLink]="['/']">GO NORTH CREATIVE</button>
-      <button mat-button class="app-link" [routerLink]="['/inquiries']">Inquiries</button>
+      <button mat-button class="app-link" [matMenuTriggerFor]="menu">Inquiries</button>
       <button mat-button class="app-link">Test</button>
       <button mat-button class="app-link">Link</button>
       <button mat-button class="app-link">Users</button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/inquiries/new']">New Inquiry</button>
+        <button mat-menu-item [routerLink]="['/inquiries']">Inquiry Placeholder</button>
+      </mat-menu>
+
     </mat-toolbar>
   </div>
 </div>

@@ -16,7 +16,17 @@ body, html {
 .footer {
   margin-top: auto;
   padding: 30px;
-  text-align: center;
+  text-align: left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700 !important;
+  font-style: normal;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
 }
 
 .libre-baskerville-regular {
