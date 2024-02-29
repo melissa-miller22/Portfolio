@@ -13,3 +13,6 @@
 1709175078140	Delete element
 1709175080862	Delete element
 1709175322579	Encapsulate field 'confirmationCode'
+1709182323168	Encapsulate field 'pendingReview'
+1709182332545	Encapsulate field 'status'
+1709182339953	Encapsulate field 'pendingInvoice'

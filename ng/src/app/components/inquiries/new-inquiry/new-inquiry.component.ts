@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MyErrorStateMatcher } from 'src/app/common/form-error/form-error.component';
 import { Inquiry } from 'src/app/model/inquiry';
 import { ApiService } from 'src/app/services/api.service';
@@ -13,7 +14,7 @@ export class NewInquiryComponent {
   
   matcher = new MyErrorStateMatcher();
 
-  constructor (private readonly apiService: ApiService) {}
+  constructor (private readonly apiService: ApiService, private router: Router) {}
 
   form = new FormGroup({
     firstName: new FormControl(null, [Validators.required]),
@@ -58,6 +59,7 @@ export class NewInquiryComponent {
 
     console.log('valid')
     this.apiService.post('inquiries/add', this.form.value).subscribe((data: any) => {
+      this.router.navigate(['inquiries/submit-successful', data.confirmationCode]);
       console.log(data)
     })
     

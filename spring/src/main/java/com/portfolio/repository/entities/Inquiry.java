@@ -23,6 +23,9 @@ public class Inquiry extends BaseEntityAudit{
 	private String details;
 	private String questions;
 	private String confirmationCode;
+	private boolean pendingReview;
+	private String status;
+	private boolean pendingInvoice;
 	
 			
 	public String getFirstName() {
@@ -137,6 +140,36 @@ public class Inquiry extends BaseEntityAudit{
 		this.confirmationCode = confirmationCode;
 	}
 	
+	public boolean isPendingReview() {
+		return pendingReview;
+	}
+
+	public void setPendingReview(boolean pendingReview) {
+		this.pendingReview = pendingReview;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	/**
+	 * @return the pendingInvoice
+	 */
+	public boolean isPendingInvoice() {
+		return pendingInvoice;
+	}
+
+	/**
+	 * @param pendingInvoice the pendingInvoice to set
+	 */
+	public void setPendingInvoice(boolean pendingInvoice) {
+		this.pendingInvoice = pendingInvoice;
+	}
+
 	@Override
 	public String toString() {
         return "Product{" +

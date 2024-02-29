@@ -1,0 +1,39 @@
+<mat-form-field>
+    <mat-label>Confirmation Code</mat-label>
+    <input matInput [(ngModel)]="cc" name="cc">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="getById()">Get By ID</button>
+
+
+<!--EDIT FUNTIONALITY TO BE ADDED-->
+
+<table *ngIf="retrievedInquiry">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Start Date
+        </th>
+        <th>
+            End Date
+        </th>
+    </tr>
+    <tr>
+        <td>
+            {{retrievedInquiry.firstName}}
+        </td>
+        <td>
+            {{retrievedInquiry.lastName}}
+        </td>
+        <td>
+            {{retrievedInquiry.startDate}}
+        </td>
+        <td>
+            {{retrievedInquiry.endDate}}
+        </td>
+    </tr>
+</table>

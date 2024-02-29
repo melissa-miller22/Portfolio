@@ -1,5 +1,6 @@
 package com.portfolio.controllers;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,21 @@ public class InquiryController {
     @GetMapping("/getbyid/{id}")
     public Optional<Inquiry> findById(@PathVariable Long id) {
     	return inquiryService.findById(id);
+    }
+    
+    @GetMapping("/getbyconfirmationcode/{cc}")
+    public Inquiry findByConfirmationCode(@PathVariable String cc) {
+    	return inquiryService.findByConfirmationCode(cc);
+    }
+    
+    @GetMapping("/getbypendingreviewtrue")
+    public List<Inquiry> findByPendingReviewTrue() {
+    	return inquiryService.findByPendingReviewTrue();
+    }
+    
+    @GetMapping("/getbypendingreviewfalse")
+    public List<Inquiry> findByPendingReviewFalse() {
+    	return inquiryService.findByPendingReviewFalse();
     }
     
     @GetMapping("/count")

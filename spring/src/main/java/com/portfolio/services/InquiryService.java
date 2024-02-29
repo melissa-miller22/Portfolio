@@ -1,6 +1,7 @@
 package com.portfolio.services;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -22,6 +23,19 @@ public class InquiryService {
 	
 	public Optional<Inquiry> findById(Long l) {
 		return inquiryRepository.findById(l);
+	}
+	
+	public Inquiry findByConfirmationCode(String cc){
+		List<Inquiry> foundInquiries = inquiryRepository.findByConfirmationCode(cc);
+		return foundInquiries.get(0);
+	}
+	
+	public List<Inquiry> findByPendingReviewTrue(){
+		return inquiryRepository.findByPendingReviewTrue();
+	}
+	
+	public List<Inquiry> findByPendingReviewFalse(){
+		return inquiryRepository.findByPendingReviewFalse();
 	}
 	
     public long findNumberOfInquiries() {
